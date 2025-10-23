@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실전 투자 전략 | 요일별 극단값 연구</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💰 실전 투자 전략 가이드</h1>
+            <p>요일별 변동성 패턴을 활용한 실전 매매 전략</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">홈</a></li>
+            <li><a href="paper.html">논문</a></li>
+            <li><a href="strategy.html" class="active">투자 전략</a></li>
+            <li><a href="about.html">소개</a></li>
+            <li><a href="https://github.com/hwkim3330/stockpaper" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="paper-content">
+
+            <div class="warning-box" style="background-color: #f8d7da; border-left-color: #dc3545;">
+                <h3>⚠️ 투자 경고</h3>
+                <p><strong>이 전략은 학술 연구 결과이며, 실제 투자 권유가 아닙니다.</strong></p>
+                <ul>
+                    <li>과거 성과가 미래 수익을 보장하지 않습니다</li>
+                    <li>모든 투자에는 원금 손실 위험이 있습니다</li>
+                    <li>개인의 투자 성향과 재무 상황을 고려하세요</li>
+                    <li>전문 재무상담사와 상의 후 투자하세요</li>
+                </ul>
+            </div>
+
+            <h2>📊 핵심 발견: 요일별로 뭐가 다른가?</h2>
+
+            <div class="success-box">
+                <h3>✅ 연구 결과 요약</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>요일</th>
+                            <th>평균 변동성</th>
+                            <th>특징</th>
+                            <th>원인</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background-color: #f8d7da;">
+                            <td><strong>월요일</strong></td>
+                            <td><strong>1.34%</strong> ⬆️</td>
+                            <td>가장 높은 변동성</td>
+                            <td>주말 뉴스 누적 반영</td>
+                        </tr>
+                        <tr>
+                            <td>화요일</td>
+                            <td>1.12%</td>
+                            <td>안정화 시작</td>
+                            <td>월요일 충격 완화</td>
+                        </tr>
+                        <tr style="background-color: #d4edda;">
+                            <td><strong>수요일</strong></td>
+                            <td><strong>1.08%</strong> ⬇️</td>
+                            <td>가장 안정적</td>
+                            <td>주중 균형 상태</td>
+                        </tr>
+                        <tr>
+                            <td>목요일</td>
+                            <td>1.10%</td>
+                            <td>소폭 증가</td>
+                            <td>주말 준비 시작</td>
+                        </tr>
+                        <tr style="background-color: #fff3cd;">
+                            <td><strong>금요일</strong></td>
+                            <td><strong>1.25%</strong> ⬆️</td>
+                            <td>높은 변동성</td>
+                            <td>포지션 정리, 주말 리스크 회피</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin: 2rem 0;">
+                <canvas id="volatilityChart" height="100"></canvas>
+            </div>
+
+            <hr>
+
+            <h2>💡 그래서 어떻게 하라는 건데?</h2>
+
+            <div class="highlight-box">
+                <h3>🎯 결론부터 말하면: <strong>요일 효과로 돈 벌기는 어렵다!</strong></h3>
+                <p>
+                    월요일과 금요일의 변동성이 20% 더 높은 것은 사실이지만,
+                    <strong>거래 비용(0.3-0.5%)</strong>을 고려하면 수익을 내기 어렵습니다.
+                </p>
+            </div>
+
+            <h3>📉 백테스트 결과 (2015-2024, 10년간)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>전략</th>
+                        <th>연평균 수익률</th>
+                        <th>샤프 비율</th>
+                        <th>최대 낙폭</th>
+                        <th>승률</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>월요일 매수 전략</strong></td>
+                        <td style="color: #e74c3c;"><strong>-0.12%</strong></td>
+                        <td>-0.21</td>
+                        <td>-8.5%</td>
+                        <td>48.5%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>금요일 매도 전략</strong></td>
+                        <td style="color: #e74c3c;">-0.35%</td>
+                        <td>-0.42</td>
+                        <td>-12.3%</td>
+                        <td>46.2%</td>
+                    </tr>
+                    <tr style="background-color: #d4edda;">
+                        <td><strong>바이앤홀드</strong></td>
+                        <td style="color: #27ae60;"><strong>+8.3%</strong></td>
+                        <td>0.85</td>
+                        <td>-15.2%</td>
+                        <td>70.0%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin: 2rem 0;">
+                <canvas id="backtestChart" height="100"></canvas>
+            </div>
+
+            <hr>
+
+            <h2>💸 거래 비용의 무서움</h2>
+
+            <p>
+                "월요일에 변동성이 높으니까 월요일에 사자!" 이렇게 생각할 수 있지만,
+                실제로는 <strong>거래할 때마다 비용이 발생</strong>합니다.
+            </p>
+
+            <div class="info-box">
+                <h3>한국 주식시장 거래 비용 (편도 기준)</h3>
+                <ul>
+                    <li>위탁매매 수수료: <strong>0.015%</strong> (증권사마다 다름)</li>
+                    <li>거래세: <strong>0.23%</strong> (매도 시에만)</li>
+                    <li>거래소 수수료: <strong>0.0008%</strong></li>
+                    <li><strong>총 왕복 비용: 약 0.3-0.5%</strong></li>
+                </ul>
+            </div>
+
+            <div style="margin: 2rem 0;">
+                <canvas id="costChart" height="100"></canvas>
+            </div>
+
+            <p>
+                위 그래프를 보면, 거래 비용이 <strong>0.3%</strong>만 되어도 수익이 완전히 사라지고,
+                <strong>0.5%</strong>가 되면 <strong>-4.2% 손실</strong>이 발생합니다!
+            </p>
+
+            <hr>
+
+            <h2>🎓 그럼 이 연구는 쓸모가 없나요?</h2>
+
+            <div class="success-box">
+                <h3>아니요! 다음과 같이 활용할 수 있습니다:</h3>
+            </div>
+
+            <h3>1️⃣ 리스크 관리</h3>
+            <div class="card">
+                <h4>📍 월요일과 금요일은 조심하세요</h4>
+                <ul>
+                    <li>✅ <strong>대규모 포지션 진입/청산은 피하기</strong></li>
+                    <li>✅ 월요일 개장 직후 급등/급락에 당황하지 않기</li>
+                    <li>✅ 금요일 마감 전 변동성 확대 예상하기</li>
+                    <li>✅ 옵션 거래 시 변동성 프리미엄 고려</li>
+                </ul>
+            </div>
+
+            <h3>2️⃣ 거래 타이밍 최적화</h3>
+            <div class="card">
+                <h4>📍 수요일이 거래하기 좋은 날입니다</h4>
+                <ul>
+                    <li>✅ <strong>대량 매수/매도는 수요일에</strong></li>
+                    <li>✅ 변동성이 낮아 스프레드 축소</li>
+                    <li>✅ 시장 충격(market impact) 최소화</li>
+                    <li>✅ 기관투자자들도 이용하는 전략</li>
+                </ul>
+            </div>
+
+            <h3>3️⃣ 포트폴리오 리밸런싱</h3>
+            <div class="card">
+                <h4>📍 정기 리밸런싱 시 고려사항</h4>
+                <ul>
+                    <li>✅ 월말 리밸런싱 → 금요일 피하고 수요일 선택</li>
+                    <li>✅ 월요일 갭 오픈 활용 (상황 따라)</li>
+                    <li>✅ 변동성 낮은 날 거래로 슬리피지 감소</li>
+                </ul>
+            </div>
+
+            <h3>4️⃣ 옵션 트레이딩</h3>
+            <div class="card">
+                <h4>📍 변동성을 직접 거래하세요</h4>
+                <ul>
+                    <li>✅ <strong>월요일 전 금요일에 옵션 매수</strong> (변동성 증가 예상)</li>
+                    <li>✅ 수요일에 옵션 매도 (변동성 감소 예상)</li>
+                    <li>✅ Vega 포지션 관리</li>
+                    <li>⚠️ 단, 방향성 예측은 여전히 어려움</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <h2>📋 요일별 실전 가이드</h2>
+
+            <div class="grid">
+                <div class="card" style="border-left: 4px solid #e74c3c;">
+                    <h3>🔴 월요일</h3>
+                    <h4>특징: 변동성 1.34% (↑ 20%)</h4>
+
+                    <p><strong>✅ 해야 할 것:</strong></p>
+                    <ul>
+                        <li>주말 뉴스 충분히 파악하기</li>
+                        <li>갭 오픈 대비 (위/아래 모두 가능)</li>
+                        <li>관망 우선, 성급한 진입 금지</li>
+                        <li>Stop-loss 여유있게 설정</li>
+                    </ul>
+
+                    <p><strong>❌ 하지 말아야 할 것:</strong></p>
+                    <ul>
+                        <li>개장 직후 충동 매매</li>
+                        <li>큰 규모 포지션 진입</li>
+                        <li>타이트한 손절매 설정</li>
+                    </ul>
+
+                    <p><strong>💰 옵션 전략:</strong></p>
+                    <p>금요일 마감 전 스트래들(Straddle) 매수 고려</p>
+                </div>
+
+                <div class="card" style="border-left: 4px solid #3498db;">
+                    <h3>🔵 화요일</h3>
+                    <h4>특징: 변동성 1.12% (평균)</h4>
+
+                    <p><strong>✅ 해야 할 것:</strong></p>
+                    <ul>
+                        <li>월요일 추세 확인 후 진입</li>
+                        <li>정상적인 거래 가능</li>
+                        <li>기술적 분석 활용</li>
+                    </ul>
+
+                    <p><strong>💡 전략:</strong></p>
+                    <p>월요일 과도한 반응 역이용 (Mean reversion)</p>
+                </div>
+
+                <div class="card" style="border-left: 4px solid #27ae60;">
+                    <h3>🟢 수요일 (BEST DAY!)</h3>
+                    <h4>특징: 변동성 1.08% (↓ 20%)</h4>
+
+                    <p><strong>✅ 해야 할 것:</strong></p>
+                    <ul>
+                        <li><strong>대규모 거래 최적 시점</strong></li>
+                        <li>리밸런싱 실행</li>
+                        <li>신규 포지션 구축</li>
+                        <li>장기 투자 매수</li>
+                    </ul>
+
+                    <p><strong>💰 장점:</strong></p>
+                    <ul>
+                        <li>스프레드 축소</li>
+                        <li>슬리피지 최소화</li>
+                        <li>Market impact 감소</li>
+                    </ul>
+
+                    <p><strong>🎯 추천 전략:</strong></p>
+                    <p>적립식 투자는 수요일에!</p>
+                </div>
+
+                <div class="card" style="border-left: 4px solid #3498db;">
+                    <h3>🔵 목요일</h3>
+                    <h4>특징: 변동성 1.10% (평균)</h4>
+
+                    <p><strong>✅ 해야 할 것:</strong></p>
+                    <ul>
+                        <li>금요일 대비 포지션 조정</li>
+                        <li>주말 리스크 점검</li>
+                        <li>Stop-loss 재설정</li>
+                    </ul>
+
+                    <p><strong>💡 전략:</strong></p>
+                    <p>주말 홀딩 여부 결정 시점</p>
+                </div>
+
+                <div class="card" style="border-left: 4px solid #f39c12;">
+                    <h3>🟡 금요일</h3>
+                    <h4>특징: 변동성 1.25% (↑ 16%)</h4>
+
+                    <p><strong>✅ 해야 할 것:</strong></p>
+                    <ul>
+                        <li>주말 리스크 관리</li>
+                        <li>불필요한 포지션 청산</li>
+                        <li>마감 1시간 전 변동성 주의</li>
+                        <li>해외 뉴스 체크 (주말 대비)</li>
+                    </ul>
+
+                    <p><strong>❌ 하지 말아야 할 것:</strong></p>
+                    <ul>
+                        <li>마감 직전 신규 진입</li>
+                        <li>큰 규모 레버리지</li>
+                    </ul>
+
+                    <p><strong>💰 옵션 전략:</strong></p>
+                    <p>변동성 감소 예상 시 옵션 매도 고려</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <h2>📊 구조 통제 전/후 비교</h2>
+
+            <p>
+                기존 연구(Lee, 2025)는 "월요일에 주간 최고가가 128회, 최저가가 135회 발생했다!"며
+                요일 효과가 있다고 주장했습니다. 하지만...
+            </p>
+
+            <h3>구조적 요인 통제 전 (어그로 끌기)</h3>
+            <div style="margin: 2rem 0;">
+                <canvas id="extremeBeforeChart" height="100"></canvas>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>G-검정 결과:</strong> G = 12.34, p &lt; 0.05 → "유의미한 패턴 발견!"</p>
+                <p>→ 하지만 이건 <strong>변동성이 높아서</strong> 그런 거였음!</p>
+            </div>
+
+            <h3>구조적 요인 통제 후 (진실)</h3>
+            <div style="margin: 2rem 0;">
+                <canvas id="extremeAfterChart" height="100"></canvas>
+            </div>
+
+            <div class="success-box">
+                <p><strong>G-검정 결과:</strong> G = 0.89, p = 0.93 → "유의미한 패턴 없음"</p>
+                <p>→ 변동성 차이를 고려하니까 <strong>패턴이 사라졌다!</strong></p>
+            </div>
+
+            <hr>
+
+            <h2>🎯 최종 결론</h2>
+
+            <div class="highlight-box">
+                <h3>💡 요일 효과는 존재하지만, 돈 벌기는 어렵다!</h3>
+
+                <p><strong>✅ 명확한 사실:</strong></p>
+                <ol>
+                    <li>월요일과 금요일은 변동성이 20% 더 높다 (통계적으로 유의미)</li>
+                    <li>수요일은 가장 안정적이다</li>
+                    <li>이는 구조적 요인(주말 정보 누적, 포지션 정리)으로 설명된다</li>
+                </ol>
+
+                <p><strong>❌ 하지만 문제는:</strong></p>
+                <ol>
+                    <li>거래 비용(0.3-0.5%)이 수익을 완전히 잡아먹는다</li>
+                    <li>백테스트 결과 연평균 -0.12% 손실</li>
+                    <li>바이앤홀드(+8.3%)가 훨씬 좋다</li>
+                </ol>
+
+                <p><strong>✅ 그래도 유용한 점:</strong></p>
+                <ol>
+                    <li><strong>리스크 관리</strong>: 월/금 조심, 수 안전</li>
+                    <li><strong>거래 타이밍</strong>: 대량 거래는 수요일에</li>
+                    <li><strong>옵션 전략</strong>: 변동성 차이 활용 가능</li>
+                    <li><strong>심리적 안정</strong>: 월요일 급등락에 덜 놀람</li>
+                </ol>
+            </div>
+
+            <div class="warning-box" style="background-color: #f8d7da; border-left-color: #dc3545;">
+                <h3>⚠️ 다시 한번 경고!</h3>
+                <p>
+                    <strong>이 전략으로 단기 매매해서 돈 벌 생각은 버리세요.</strong><br>
+                    거래 비용만 증권사에 갖다 바칩니다.<br><br>
+                    대신 <strong>리스크 관리</strong>와 <strong>거래 타이밍 최적화</strong>에 활용하세요!
+                </p>
+            </div>
+
+            <hr>
+
+            <h2>📚 더 알아보기</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>📖 전체 논문</h3>
+                    <p>상세한 통계 분석과 수식을 확인하세요</p>
+                    <a href="paper.html" class="btn btn-primary">논문 읽기</a>
+                </div>
+
+                <div class="card">
+                    <h3>💻 분석 코드</h3>
+                    <p>Python으로 직접 분석해보세요</p>
+                    <a href="https://github.com/hwkim3330/stockpaper" class="btn btn-primary" target="_blank">GitHub</a>
+                </div>
+
+                <div class="card">
+                    <h3>📧 문의하기</h3>
+                    <p>질문이나 피드백을 보내주세요</p>
+                    <a href="mailto:hwkim3330@gmail.com" class="btn btn-primary">이메일 보내기</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 김현우 (Hyunwoo Kim). All rights reserved.</p>
+            <p>Licensed under <a href="LICENSE" target="_blank">CC BY 4.0</a></p>
+            <p><a href="index.html">홈으로 돌아가기</a></p>
+        </div>
+    </footer>
+
+    <script src="js/charts.js"></script>
+</body>
+</html>

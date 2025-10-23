@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <header>
@@ -24,6 +25,7 @@
         <ul>
             <li><a href="index.html" class="active">홈</a></li>
             <li><a href="paper.html">논문</a></li>
+            <li><a href="strategy.html">💰 투자 전략</a></li>
             <li><a href="about.html">소개</a></li>
             <li><a href="https://github.com/hwkim3330/stockpaper" target="_blank">GitHub</a></li>
         </ul>
@@ -78,6 +80,30 @@
                     <p>월요일과 금요일의 변동성이 다른 요일보다 약 20% 높지만, 거래 비용을 고려하면 수익 창출 불가능합니다.</p>
                     <div class="badge badge-warning">시장 효율성</div>
                 </div>
+            </div>
+
+            <h2>📊 요일별 변동성 패턴 (실증 데이터)</h2>
+            <div style="max-width: 800px; margin: 2rem auto;">
+                <canvas id="volatilityChart" height="100"></canvas>
+            </div>
+
+            <div class="highlight-box">
+                <h3>💰 그래서 어느 요일에 사고 팔라는 건데?</h3>
+                <p style="font-size: 1.1rem; font-weight: 500;">
+                    <strong>결론부터 말하면: 요일만 보고 사고팔면 손해입니다!</strong><br>
+                    거래 비용(0.3-0.5%)이 모든 수익을 잡아먹습니다.
+                </p>
+                <p>
+                    하지만 <strong>리스크 관리</strong>와 <strong>거래 타이밍 최적화</strong>에는 유용합니다:
+                </p>
+                <ul>
+                    <li>🔴 <strong>월요일/금요일</strong>: 변동성 ↑ → 대규모 거래 피하기</li>
+                    <li>🟢 <strong>수요일</strong>: 변동성 ↓ → 대규모 거래 최적 시점</li>
+                    <li>💡 <strong>옵션 거래</strong>: 변동성 차이를 직접 활용 가능</li>
+                </ul>
+                <a href="strategy.html" class="btn btn-primary" style="display: inline-block; margin-top: 1rem;">
+                    💰 상세 투자 전략 보기 →
+                </a>
             </div>
 
             <h2>📊 실증 결과 요약</h2>
@@ -178,6 +204,12 @@
             <h2>🔗 주요 링크</h2>
             <div class="grid">
                 <div class="card">
+                    <h3>💰 실전 투자 전략</h3>
+                    <p>요일별 구체적인 매매 전략과 백테스트 결과를 확인하세요.</p>
+                    <a href="strategy.html" class="btn btn-primary">투자 전략 보기</a>
+                </div>
+
+                <div class="card">
                     <h3>📖 논문 전문</h3>
                     <p>전체 논문을 HTML 형식으로 읽어보세요.</p>
                     <a href="paper.html" class="btn btn-primary">논문 읽기</a>
@@ -232,6 +264,7 @@
         </div>
     </footer>
 
+    <script src="js/charts.js"></script>
     <script>
         // Simple fade-in animation on scroll
         document.addEventListener('DOMContentLoaded', function() {
