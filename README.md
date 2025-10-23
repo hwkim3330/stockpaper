@@ -81,7 +81,7 @@ stockpaper/
 ```bibtex
 @article{kim2025weekday,
   title={요일별 주간 극단값 집중 현상의 재해석: 시장 미시구조와 시간 비균질성 분석},
-  author={김형욱},
+  author={김현우},
   year={2025},
   month={10},
   url={https://hwkim3330.github.io/stockpaper/},
@@ -111,7 +111,7 @@ This work is licensed under a [Creative Commons Attribution 4.0 International Li
 
 ## 📧 Contact
 
-- **Author**: 김형욱 (Hyeong-Wook Kim)
+- **Author**: 김현우 (Hyunwoo Kim)
 - **Email**: hwkim3330@gmail.com
 - **GitHub**: [@hwkim3330](https://github.com/hwkim3330)
 

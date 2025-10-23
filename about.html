@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="연구 소개 및 방법론">
+    <title>연구 소개 | 요일별 주간 극단값 집중 현상</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>연구 소개</h1>
+            <p>About This Research</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">홈</a></li>
+            <li><a href="paper.html">논문</a></li>
+            <li><a href="about.html" class="active">소개</a></li>
+            <li><a href="https://github.com/hwkim3330/stockpaper" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="paper-content">
+            <h2>🔍 연구 배경</h2>
+            <p>
+                이 연구는 SSRN에 게재된 논문 "<strong>Calendar-based clustering of weekly extremes: Empirical failure of stochastic models</strong>"
+                (Lee, 2025)에 대한 비판적 재검토로 시작되었습니다.
+            </p>
+
+            <p>기존 논문은 흥미로운 현상을 제시했지만, 다음과 같은 한계가 있었습니다:</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>❌ 문제점 1</h3>
+                    <h4>구조적 요인 미고려</h4>
+                    <p>시장 미시구조와 시간 비균질성을 충분히 통제하지 않음</p>
+                </div>
+
+                <div class="card">
+                    <h3>❌ 문제점 2</h3>
+                    <h4>구체성 부족</h4>
+                    <p>어떤 요일에 집중되는지 명확히 제시하지 않음</p>
+                </div>
+
+                <div class="card">
+                    <h3>❌ 문제점 3</h3>
+                    <h4>인과관계 불명확</h4>
+                    <p>통계적 패턴과 경제적 의미를 혼동함</p>
+                </div>
+            </div>
+
+            <p>본 연구는 이러한 문제점을 해결하고자 합니다.</p>
+
+            <hr>
+
+            <h2>📊 연구 방법론</h2>
+
+            <h3>데이터</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>내용</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>대상 자산</strong></td>
+                        <td>KOSPI 200, S&P 500, NASDAQ 지수</td>
+                    </tr>
+                    <tr>
+                        <td><strong>기간</strong></td>
+                        <td>2015-2024 (10년간)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>빈도</strong></td>
+                        <td>일별 데이터 (고가, 저가, 종가)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>샘플 수</strong></td>
+                        <td>약 7,500 관측치</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>분석 도구</h3>
+            <div class="grid">
+                <div class="card">
+                    <h3>1️⃣ G-검정</h3>
+                    <p>요일별 극단값 분포의 균등성 검정</p>
+                    <code>scipy.stats</code>
+                </div>
+
+                <div class="card">
+                    <h3>2️⃣ WCSV 모형</h3>
+                    <p>요일조건부 확률적 변동성 모형</p>
+                    <code>numpy, scipy.optimize</code>
+                </div>
+
+                <div class="card">
+                    <h3>3️⃣ 몬테카를로 시뮬레이션</h3>
+                    <p>모형 검증 및 비교</p>
+                    <code>pandas, matplotlib</code>
+                </div>
+            </div>
+
+            <h3>기술 스택</h3>
+            <ul>
+                <li><strong>Python 3.10+</strong>
+                    <ul>
+                        <li>NumPy, Pandas: 데이터 처리</li>
+                        <li>SciPy: 통계 분석 및 최적화</li>
+                        <li>Matplotlib, Seaborn: 시각화</li>
+                        <li>Statsmodels: 시계열 분석</li>
+                    </ul>
+                </li>
+                <li><strong>HTML/CSS/JavaScript</strong>
+                    <ul>
+                        <li>반응형 웹 디자인</li>
+                        <li>MathJax: 수식 렌더링</li>
+                    </ul>
+                </li>
+                <li><strong>GitHub Pages</strong>
+                    <ul>
+                        <li>정적 사이트 호스팅</li>
+                        <li>버전 관리 및 협업</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <hr>
+
+            <h2>🎯 주요 기여</h2>
+
+            <div class="success-box">
+                <h3>1. 방법론적 기여</h3>
+                <ul>
+                    <li><strong>WCSV 모형 제안</strong>: 요일별 변동성 차이를 명시적으로 반영한 새로운 모형</li>
+                    <li><strong>구조적 요인 분해</strong>: 극단값 패턴을 3가지 요인으로 분해</li>
+                    <li><strong>재현 가능한 분석</strong>: 모든 코드와 방법론을 공개</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>2. 실증적 기여</h3>
+                <ul>
+                    <li>구조적 요인 통제 시 요일별 극단값 집중 현상이 사라짐을 입증</li>
+                    <li>월요일과 금요일의 변동성이 다른 요일보다 약 20% 높음을 확인</li>
+                    <li>WCSV 모형이 기존 모형보다 AIC/BIC 기준 우수함을 보임</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3>3. 정책적 기여</h3>
+                <ul>
+                    <li>리스크 관리를 위한 요일별 포지션 조정 전략 제시</li>
+                    <li>거래 시간 최적화 권고 (수요일 대규모 거래 집행)</li>
+                    <li>주말 정보 누적 문제 해결을 위한 제도 개선 방향 제안</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <h2>🔄 재현 가능성 (Reproducibility)</h2>
+
+            <p>과학적 연구의 핵심은 재현 가능성입니다. 본 연구는 다음을 제공합니다:</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>📁 코드 저장소</h3>
+                    <p>모든 분석 코드는 GitHub에 공개되어 있습니다.</p>
+                    <a href="https://github.com/hwkim3330/stockpaper" class="btn btn-primary" target="_blank">GitHub 방문</a>
+                </div>
+
+                <div class="card">
+                    <h3>📊 데이터</h3>
+                    <p>샘플 데이터와 데이터 수집 스크립트를 제공합니다.</p>
+                    <code>data/ 디렉토리</code>
+                </div>
+
+                <div class="card">
+                    <h3>📖 문서화</h3>
+                    <p>상세한 방법론과 코드 주석을 제공합니다.</p>
+                    <code>README.md, CONTRIBUTING.md</code>
+                </div>
+            </div>
+
+            <h3>로컬 환경에서 실행하기</h3>
+            <pre><code># 저장소 클론
+git clone https://github.com/hwkim3330/stockpaper.git
+cd stockpaper
+
+# 의존성 설치
+pip install -r requirements.txt
+
+# WCSV 모형 실행
+python scripts/wcsv_model.py
+
+# 시뮬레이션 실행
+python scripts/simulation.py
+
+# G-검정 실행
+python scripts/g_test.py</code></pre>
+
+            <hr>
+
+            <h2>👤 저자 소개</h2>
+
+            <div class="card">
+                <h3>김현우 (Hyunwoo Kim)</h3>
+                <p><strong>소속:</strong> 독립 연구자</p>
+                <p><strong>연구 분야:</strong> 금융 계량경제학, 시계열 분석, 시장 미시구조</p>
+                <p><strong>관심사:</strong> 행동재무학, 머신러닝, 알고리즘 트레이딩</p>
+
+                <h4>연락처</h4>
+                <ul>
+                    <li><strong>이메일:</strong> <a href="mailto:hwkim3330@gmail.com">hwkim3330@gmail.com</a></li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/hwkim3330" target="_blank">@hwkim3330</a></li>
+                </ul>
+
+                <h4>연구 철학</h4>
+                <blockquote>
+                    "모든 연구는 재현 가능해야 하며, 코드와 데이터는 공개되어야 합니다.
+                    과학적 발견은 커뮤니티와 공유될 때 비로소 가치를 가집니다."
+                </blockquote>
+            </div>
+
+            <hr>
+
+            <h2>🙏 감사의 말</h2>
+
+            <p>이 연구는 다음 분들의 도움으로 완성되었습니다:</p>
+
+            <ul>
+                <li><strong>Lee (2025)</strong>: 초기 아이디어와 영감 제공</li>
+                <li><strong>ChatGPT</strong>: 문헌 조사 및 논의 지원</li>
+                <li><strong>Claude Code</strong>: 코드 작성 및 GitHub Pages 설정</li>
+                <li><strong>오픈소스 커뮤니티</strong>: NumPy, SciPy, Pandas 등 Python 라이브러리 제공</li>
+            </ul>
+
+            <hr>
+
+            <h2>🔮 향후 계획</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>📈 확장 연구</h3>
+                    <ul>
+                        <li>다른 국가 시장으로 확대 (유럽, 아시아)</li>
+                        <li>암호화폐 시장 분석</li>
+                        <li>상품 시장 (원유, 금, 곡물) 분석</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🔬 고빈도 데이터</h3>
+                    <ul>
+                        <li>분 단위 데이터 분석</li>
+                        <li>일중(intraday) 패턴 탐지</li>
+                        <li>틱(tick) 데이터 활용</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🤖 기계학습</h3>
+                    <ul>
+                        <li>LSTM, Transformer 적용</li>
+                        <li>비선형 패턴 탐지</li>
+                        <li>강화학습 기반 트레이딩</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>📄 논문 투고</h3>
+                    <ul>
+                        <li>국제 학술지 투고 준비</li>
+                        <li>학회 발표</li>
+                        <li>동료 심사(peer review)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+
+            <h2>📝 라이선스</h2>
+
+            <div class="info-box">
+                <p>이 연구는 <strong>Creative Commons Attribution 4.0 International License</strong> 하에 배포됩니다.</p>
+
+                <h4>허용사항:</h4>
+                <ul>
+                    <li>✅ <strong>공유 (Share)</strong>: 자유롭게 복사, 배포</li>
+                    <li>✅ <strong>변형 (Adapt)</strong>: 리믹스, 수정, 2차 저작물 생성</li>
+                    <li>✅ <strong>상업적 이용 (Commercial use)</strong>: 상업적 목적으로도 사용 가능</li>
+                </ul>
+
+                <h4>조건:</h4>
+                <ul>
+                    <li>⚠️ <strong>저작자 표시 (Attribution)</strong>: 적절한 출처 표기 필수</li>
+                    <li>⚠️ <strong>변경 사항 표시 (Indicate changes)</strong>: 수정 시 변경 사항 명시</li>
+                </ul>
+
+                <p>자세한 내용은 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0 전문</a>을 참조하세요.</p>
+            </div>
+
+            <hr>
+
+            <h2>📧 문의 및 협업</h2>
+
+            <p>연구에 대한 질문, 제안, 협업 문의는 언제든지 환영합니다!</p>
+
+            <div class="card">
+                <h3>연락 방법</h3>
+                <ul>
+                    <li><strong>이메일:</strong> <a href="mailto:hwkim3330@gmail.com">hwkim3330@gmail.com</a></li>
+                    <li><strong>GitHub Issues:</strong> <a href="https://github.com/hwkim3330/stockpaper/issues" target="_blank">이슈 제기</a></li>
+                    <li><strong>Pull Request:</strong> <a href="https://github.com/hwkim3330/stockpaper/pulls" target="_blank">코드 기여</a></li>
+                </ul>
+
+                <p>기여 가이드라인은 <a href="https://github.com/hwkim3330/stockpaper/blob/main/CONTRIBUTING.md" target="_blank">CONTRIBUTING.md</a>를 참조해주세요.</p>
+            </div>
+
+            <div class="success-box">
+                <h3>🌟 이 연구가 도움이 되셨나요?</h3>
+                <p>GitHub에서 ⭐ 스타를 눌러주세요!</p>
+                <a href="https://github.com/hwkim3330/stockpaper" class="btn btn-primary" target="_blank">⭐ Star on GitHub</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 김현우 (Hyunwoo Kim). All rights reserved.</p>
+            <p>Licensed under <a href="LICENSE" target="_blank">CC BY 4.0</a></p>
+            <p><a href="index.html">홈으로 돌아가기</a> | <a href="https://github.com/hwkim3330/stockpaper">GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

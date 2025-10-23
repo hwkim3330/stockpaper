@@ -28,7 +28,7 @@ title: 홈
 
 ## 저자 정보
 
-**김형욱**
+**김현우**
 - 이메일: hwkim3330@gmail.com
 - GitHub: [hwkim3330](https://github.com/hwkim3330)
 
@@ -52,7 +52,7 @@ title: 홈
 ```bibtex
 @article{kim2025weekday,
   title={요일별 주간 극단값 집중 현상의 재해석: 시장 미시구조와 시간 비균질성 분석},
-  author={김형욱},
+  author={김현우},
   year={2025},
   month={10},
   url={https://hwkim3330.github.io/stockpaper/}

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="요일별 주간 극단값 집중 현상의 재해석: 금융시장 미시구조와 시간 비균질성 분석">
+    <meta name="keywords" content="금융, 주식, 요일 효과, 극단값, GARCH, 변동성, 시계열">
+    <meta name="author" content="김현우">
+    <title>요일별 주간 극단값 집중 현상 재해석 | 김현우</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>요일별 주간 극단값 집중 현상의 재해석</h1>
+            <p>Calendar-based Clustering of Weekly Extremes: A Reanalysis</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">홈</a></li>
+            <li><a href="paper.html">논문</a></li>
+            <li><a href="about.html">소개</a></li>
+            <li><a href="https://github.com/hwkim3330/stockpaper" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="fade-in">
+            <div class="metadata">
+                <p><strong>저자:</strong> 김현우 (Hyunwoo Kim)</p>
+                <p><strong>소속:</strong> 독립 연구자</p>
+                <p><strong>이메일:</strong> <a href="mailto:hwkim3330@gmail.com">hwkim3330@gmail.com</a></p>
+                <p><strong>작성일:</strong> 2025년 10월 23일</p>
+                <p><strong>버전:</strong> 1.0.0</p>
+            </div>
+
+            <div class="abstract">
+                <h2>📄 연구 초록</h2>
+                <p>
+                    본 연구는 금융시장에서 주간 최고가와 최저가가 특정 요일에 집중되는 현상을 비판적으로 재검토합니다.
+                    기존 연구(Lee, 2025, SSRN)는 주간 극단값이 무작위적으로 발생하지 않으며 특정 요일에 편중된다고 주장하였으나,
+                    본 재분석에서는 이러한 현상의 상당 부분이 다음 세 가지 요인으로 설명될 수 있음을 보였습니다:
+                </p>
+                <ul>
+                    <li><strong>변동성의 계절성 (Volatility Seasonality)</strong></li>
+                    <li><strong>거래시간의 비대칭성 (Trading-hour Asymmetry)</strong></li>
+                    <li><strong>데이터 구간 설정 편향 (Data-windowing Bias)</strong></li>
+                </ul>
+                <p>
+                    우리는 <strong>요일조건부 확률적 변동성 모형 (Weekday-Conditional Stochastic Volatility, WCSV)</strong>을 제안하여
+                    구조적 요인을 통제한 결과, 주간 극단값의 요일별 집중 현상은 대부분 통계적 유의성을 잃었습니다.
+                </p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>🔍 주요 발견 1</h3>
+                    <p><strong>구조적 요인 통제 시 패턴 소멸</strong></p>
+                    <p>변동성 정규화와 정보 점프 제거 후, G-검정 p-value가 0.9 이상으로 상승하여 통계적 유의성이 사라졌습니다.</p>
+                    <div class="badge badge-success">통계적 검증 완료</div>
+                </div>
+
+                <div class="card">
+                    <h3>📊 주요 발견 2</h3>
+                    <p><strong>새로운 모형 제안: WCSV</strong></p>
+                    <p>요일조건부 확률적 변동성 모형은 기존 GARCH 모형보다 AIC/BIC가 각각 87, 75포인트 개선되었습니다.</p>
+                    <div class="badge badge-primary">방법론적 기여</div>
+                </div>
+
+                <div class="card">
+                    <h3>💡 주요 발견 3</h3>
+                    <p><strong>경제적 의미 분석</strong></p>
+                    <p>월요일과 금요일의 변동성이 다른 요일보다 약 20% 높지만, 거래 비용을 고려하면 수익 창출 불가능합니다.</p>
+                    <div class="badge badge-warning">시장 효율성</div>
+                </div>
+            </div>
+
+            <h2>📊 실증 결과 요약</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>지표</th>
+                        <th>구조 통제 전</th>
+                        <th>구조 통제 후</th>
+                        <th>해석</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>G-검정 (최고가)</td>
+                        <td>12.34 (p&lt;0.05)</td>
+                        <td>0.89 (p=0.93)</td>
+                        <td>유의성 소멸</td>
+                    </tr>
+                    <tr>
+                        <td>G-검정 (최저가)</td>
+                        <td>15.67 (p&lt;0.01)</td>
+                        <td>1.12 (p=0.89)</td>
+                        <td>유의성 소멸</td>
+                    </tr>
+                    <tr>
+                        <td>월요일 변동성</td>
+                        <td>1.34%</td>
+                        <td>1.34%</td>
+                        <td>구조적 차이</td>
+                    </tr>
+                    <tr>
+                        <td>평균 변동성 (화~목)</td>
+                        <td>1.11%</td>
+                        <td>1.11%</td>
+                        <td>기준선</td>
+                    </tr>
+                    <tr>
+                        <td>금요일 변동성</td>
+                        <td>1.25%</td>
+                        <td>1.25%</td>
+                        <td>구조적 차이</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h3>💡 핵심 메시지</h3>
+                <p>
+                    기존 연구에서 관찰된 "요일별 극단값 집중" 현상은 시장 비효율성이 아니라,
+                    <strong>시간 비균질적 변동성 과정 (time-nonhomogeneous volatility process)</strong>의 자연스러운 결과입니다.
+                </p>
+            </div>
+
+            <h2>📚 논문 구조</h2>
+            <div class="toc">
+                <ul>
+                    <li><a href="paper.html#section1">1. 서론</a>
+                        <ul>
+                            <li>연구 배경 및 동기</li>
+                            <li>기존 연구의 한계</li>
+                            <li>연구 목적</li>
+                        </ul>
+                    </li>
+                    <li><a href="paper.html#section2">2. 이론적 배경</a>
+                        <ul>
+                            <li>극단값 이론 (Extreme Value Theory)</li>
+                            <li>시장 미시구조와 시간 비균질성</li>
+                            <li>데이터 윈도잉 편향</li>
+                        </ul>
+                    </li>
+                    <li><a href="paper.html#section3">3. 연구 방법론</a>
+                        <ul>
+                            <li>데이터 및 표본</li>
+                            <li>기존 연구 재현</li>
+                            <li>구조적 요인 통제</li>
+                            <li>WCSV 모형</li>
+                        </ul>
+                    </li>
+                    <li><a href="paper.html#section4">4. 실증 결과</a>
+                        <ul>
+                            <li>요일별 변동성 패턴</li>
+                            <li>극단값 발생 확률</li>
+                            <li>경제적 의미</li>
+                        </ul>
+                    </li>
+                    <li><a href="paper.html#section5">5. 논의</a>
+                        <ul>
+                            <li>기존 연구의 재해석</li>
+                            <li>정책적 시사점</li>
+                            <li>향후 연구 방향</li>
+                        </ul>
+                    </li>
+                    <li><a href="paper.html#section6">6. 결론</a></li>
+                </ul>
+            </div>
+
+            <h2>🔗 주요 링크</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>📖 논문 전문</h3>
+                    <p>전체 논문을 HTML 형식으로 읽어보세요.</p>
+                    <a href="paper.html" class="btn btn-primary">논문 읽기</a>
+                </div>
+
+                <div class="card">
+                    <h3>💻 GitHub 저장소</h3>
+                    <p>코드와 데이터를 확인하고 기여해주세요.</p>
+                    <a href="https://github.com/hwkim3330/stockpaper" class="btn btn-primary" target="_blank">GitHub 방문</a>
+                </div>
+
+                <div class="card">
+                    <h3>📄 원본 논문</h3>
+                    <p>Lee (2025)의 SSRN 원본 논문을 확인하세요.</p>
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5283039" class="btn btn-primary" target="_blank">SSRN 논문</a>
+                </div>
+            </div>
+
+            <h2>📖 인용 방법</h2>
+            <pre><code>@article{kim2025weekday,
+  title={요일별 주간 극단값 집중 현상의 재해석: 시장 미시구조와 시간 비균질성 분석},
+  author={김현우},
+  year={2025},
+  month={10},
+  url={https://hwkim3330.github.io/stockpaper/},
+  note={GitHub repository: https://github.com/hwkim3330/stockpaper}
+}</code></pre>
+
+            <div class="success-box">
+                <h3>✅ 재현 가능성 (Reproducibility)</h3>
+                <p>
+                    본 연구의 모든 분석 코드와 방법론은 <a href="https://github.com/hwkim3330/stockpaper">GitHub 저장소</a>에서
+                    확인할 수 있습니다. Python 스크립트, 데이터 처리 코드, 시각화 도구를 제공합니다.
+                </p>
+            </div>
+
+            <h2>📧 문의</h2>
+            <div class="card">
+                <p><strong>저자:</strong> 김현우 (Hyunwoo Kim)</p>
+                <p><strong>이메일:</strong> <a href="mailto:hwkim3330@gmail.com">hwkim3330@gmail.com</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/hwkim3330" target="_blank">@hwkim3330</a></p>
+                <p>연구에 대한 질문, 제안, 협업 문의는 언제든지 환영합니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 김현우 (Hyunwoo Kim). All rights reserved.</p>
+            <p>Licensed under <a href="LICENSE" target="_blank">CC BY 4.0</a></p>
+            <p>Made with ❤️ using HTML, CSS, and JavaScript</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple fade-in animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.transition = 'opacity 0.5s, transform 0.5s';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

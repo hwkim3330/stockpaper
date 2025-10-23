@@ -1,6 +1,6 @@
 title: "요일별 주간 극단값 집중 현상 재해석"
 description: "금융시장의 주간 극단값 패턴에 대한 실증 연구"
-author: "김형욱"
+author: "김현우"
 email: "hwkim3330@gmail.com"
 
 theme: jekyll-theme-cayman
@@ -16,8 +16,8 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-baseurl: "/stockpaper"
-url: "https://hwkim3330.github.io"
+baseurl: ""
+url: "https://hwkim3330.github.io/stockpaper"
 
 lang: ko-KR
 timezone: Asia/Seoul
